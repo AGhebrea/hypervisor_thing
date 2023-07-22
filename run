@@ -1,0 +1,15 @@
+#!/bin/bash
+
+cd $HYPERVISOR_THING_DIR
+
+if [ ! -d ./bin ];
+then
+	echo "Creating ./bin directory."
+	mkdir ./bin
+fi
+
+make
+cd ./bin
+./host guest
+TMP=$?
+echo -e "\n\n***Program exited with: [$TMP]***"
